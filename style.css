@@ -212,7 +212,8 @@ time
 {
     margin-top: 50px;
     display : flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     padding:50px;
@@ -236,6 +237,7 @@ time
     border-radius: 10px;
 }
 /*Affiche des bulles de messages en bas, N'EST PLUS UTILISE */
+/*
 #message_stack
 {
     position:fixed;
@@ -260,6 +262,7 @@ time
 {
     color: #fff;
 }
+*/
 /*
 - media queries
 - suppression des effets opacité réduite / hover, 
