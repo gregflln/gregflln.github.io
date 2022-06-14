@@ -100,7 +100,7 @@ html, body
     font-size: large;
     text-align: center;
 }
-.menu a:hover
+.menu a:hover, .menu a.hover_js
 {
     color:var(--primary-color);
 }
@@ -124,7 +124,7 @@ html, body
 {
     margin-top: 144px;
 }
-.section:hover > .heading
+.section:hover > .heading, .selection .hover_js > .heading
 {
     font-size: 2rem;
 }
@@ -137,7 +137,7 @@ html, body
     background: var(--gradient);
     
 }
-div:hover > .subline
+div:hover > .subline, div.hover_js > .subline
 {
     width:60%;
     background-color: var(--primary-color);
@@ -156,7 +156,7 @@ div:hover > .subline
     padding: 2rem 0;
 
 }
-.list_item:hover > .what
+.list_item:hover > .what, .list_item.hover_js > .what
 {
     font-size: 1.6rem;
     color:var(--light);
@@ -239,7 +239,7 @@ time
     border-radius: var(--radius);
     background-color: rgba(255,255,255,.1);
 }
-.cta a:hover
+.cta a:hover, .cta a.hover_js
 {
     background-color: var(--secondary-color);
 }
