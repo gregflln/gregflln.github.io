@@ -1,16 +1,40 @@
 /*Gobales*/
 :root
 {
-    --primary-color: rgb(227, 160, 0);
-    --text-color: rgb(198, 198, 198);
-    --background-color: rgb(29, 29, 29);
+    --primary-color: rgb(80, 173, 255);
+    --secondary-color: rgb(0, 201, 107);
+    --text-color: #9f9f9f;
+    --light : #fff;
+    --background-color:#1d1d1d;
+    --foreground-color: #292929;
+    --radius: 0.6rem;
+    --shadow : 0 9px 8px -2px rgba(0,0,0,0.3);
     --transition-speed: 0.6s;
-    --inactive-opacity: 0.7;
+    --gradient: linear-gradient(140deg, var(--primary-color) 0%, var(--secondary-color) 100%);
 }
 * {
     box-sizing: border-box;
     transition-duration: var(--transition-speed);
 }
+/* uils*/
+/* barre horizontal de décoration */
+.slice
+{
+    z-index:2;
+    position:absolute;
+    height:100%;
+    width: 100%;
+    transform: skewY(-32deg);
+    background-color: var(--foreground-color);
+}
+.bis
+{
+    transform: skewY(16deg);
+    background: var(--secondary-color);
+    opacity: 10%;
+    height: 51%;
+}
+/**/
 /*layout*/
 html, body
 {
@@ -20,19 +44,15 @@ html, body
 }
 .page_container
 {
+    z-index: 3;
+    position: relative;
     margin: 0 auto;
     max-width: 1000px;
-}
-main
-{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    padding: 0.5rem 2rem;
 }
 /*Blocc nom + métier*/
 .hero
 {
-    margin: 0.5rem 2rem;
     background-size: cover;
     background-position: center;
     height: 50vh;
@@ -41,23 +61,17 @@ main
     align-items: start;
     justify-content: center;
     flex-direction: column;
-    font-size: 50px;
-    line-height: 120%;
 }
 .hero .name
 {
     font-size: 2.5rem;
+    color:var(--light);
 }
 .hero .exergue
 {
     font-weight: bold;
     color:var(--primary-color);
-    opacity: var(--inactive-opacity);
-}
-.hero:hover .exergue
-{
-    /*text-shadow: 0 0 30px var(--primary-color);*/
-    opacity: 1;
+    font-size: 50px;
 }
 /*Menu*/
 .menu
@@ -75,13 +89,9 @@ main
     background-color: var(--background-color);
     border-bottom: rgba(255, 255, 255, 0.2) 1px solid;
 }
-.menu:hover > a
-{
-    opacity: 1;
-}
+
 .menu a
 {
-    opacity: var(--inactive-opacity);
     text-decoration: none;
     color: var(--text-color);
     margin: 20px;
@@ -97,39 +107,40 @@ main
 /*Titre des section*/
 .heading
 {
-    margin: 0.5rem 2rem;
     padding-bottom:20px;
     font-size: 1.8rem;
     height: 50px;;
-    margin-top: 144px;
     font-weight: bold;
-    color: var(--primary-color);
+    color: var(--light);
 }
-.section > .heading
+.subcategory
 {
-    color:var(--text-color);
-    opacity: var(--inactive-opacity);
+    width: 100%;
+    font-weight: bold;
+    font-size: 1.45rem;
+    margin: 36px 0 0 0;
+}
+.section
+{
+    margin-top: 144px;
 }
 .section:hover > .heading
 {
     font-size: 2rem;
-    opacity: 1;
 }
 /*Sous lignages des titres de section */
 .subline
 {
     width:40%;
     height:7px;
-    background-color: var(--primary-color);
-    margin-left: 2rem;
-    opacity: 0.4;
+    /*background-color: var(--primary-color);*/
+    background: var(--gradient);
     
 }
 div:hover > .subline
 {
     width:60%;
     background-color: var(--primary-color);
-    opacity: 1;
 }
 /*conteneur des listes*/
 .list_container
@@ -137,24 +148,20 @@ div:hover > .subline
     display: flex;
     flex-wrap: wrap;
 }
-.list_container > div
+/*Item de list container*/
+.list_item
 {
     width: 100%;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     padding: 2rem 0;
-    margin: 0.5rem 2rem;
-    opacity: var(--inactive-opacity);
+
 }
-.list_container > div:hover
-{
-    opacity: 1;
-}
-.list_container > div:hover > .what
+.list_item:hover > .what
 {
     font-size: 1.6rem;
-    color: var(--primary-color);
+    color:var(--light);
 }
-.list_container > div > div, time
+.list_item > div, time
 {
     padding:5px 0;
 }
@@ -164,7 +171,6 @@ div:hover > .subline
     margin: 10px 0;
     font-weight: bold;
     font-size: x-large;
-    
     height: 35px;
 }
 .where
@@ -172,7 +178,6 @@ div:hover > .subline
     margin: 10px 0;
     font-size: large;
     color: var(--text-color);
-    opacity: var(--inactive-opacity);
 }
 time
 {
@@ -186,12 +191,6 @@ time
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin:0.5rem 2rem;
-    opacity: var(--inactive-opacity);
-}
-.badge-cards:hover
-{
-    opacity: 1;
 }
 .badge-cards > div
 {
@@ -199,8 +198,9 @@ time
    margin-right:20px;
    margin-top:20px;
    border-radius: 10px;
-   background-color: rgba(255,255,255,0.05);
+   background-color: var(--foreground-color);
    font-size: large;
+   box-shadow: var(--shadow);
    
 }
 /*Call 2 action du bas "Contactez moi"*/
@@ -208,61 +208,41 @@ time
 {
     margin:20px 0;
 }
+
 .cta
 {
-    margin-top: 50px;
-    display : flex;
-    flex-direction: row;
+    background: var(--foreground-color);
+    border-radius: var(--radius);
+    margin:50px 0;
+    padding:50px;
+    text-align: center;
+    width: 100%;
+    box-shadow: var(--shadow);
+}
+.cta .links
+{
+    display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    padding:50px;
-    text-align: center;
-    font-size: xx-large;
-    font-weight: bold;
-    background-color: var(--primary-color);
-    color:#fff;
 }
 .cta a
 {
     text-decoration: none;
-    color: var(--primary-color);
+    color:var(--light);
     margin: 20px;
     padding:20px;
     text-transform: uppercase;
-    font-size: large;
+    font-size: medium;
     font-weight: bold;
     text-align: center;
-    background-color: #fff;
-    border-radius: 10px;
+    border-radius: var(--radius);
+    background-color: rgba(255,255,255,.1);
 }
-/*Affiche des bulles de messages en bas, N'EST PLUS UTILISE */
-/*
-#message_stack
+.cta a:hover
 {
-    position:fixed;
-    top:0;
-    right:0;
-    height: 100vh;
-    z-index: 99;
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: end;
-    align-items: end;
+    background-color: var(--secondary-color);
 }
-#message_stack > .message
-{
-    background-color: rgb(45, 164, 45);
-    color: #fff;
-    padding:20px;
-    margin-bottom: 30px;
-    font-size:larger;
-}
-#message_stack > .message > a
-{
-    color: #fff;
-}
-*/
 /*
 - media queries
 - suppression des effets opacité réduite / hover, 
@@ -274,13 +254,9 @@ time
 
 @media screen and (max-width: 700px)
 {
-    :root
-    {
-        --inactive-opacity: 1;
-    }
     .hero
     {
-        height: 90vh;
+        height: 100vh;
     }
     .menu
     {
