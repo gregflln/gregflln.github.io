@@ -58,7 +58,7 @@ html, body
     height: 50vh;
     min-height: 300px;
     display: flex;
-    align-items: start;
+    align-items: center;
     justify-content: center;
     flex-direction: column;
 }
@@ -70,8 +70,10 @@ html, body
 .hero .exergue
 {
     font-weight: bold;
-    color:var(--primary-color);
-    font-size: 50px;
+    font-size: 4rem;
+    background-image: var(--gradient);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 /*Menu*/
 .menu
@@ -139,7 +141,7 @@ html, body
 }
 div:hover > .subline, div.hover_js > .subline
 {
-    width:60%;
+    width:45%;
     background-color: var(--primary-color);
 }
 /*conteneur des listes*/
@@ -156,10 +158,17 @@ div:hover > .subline, div.hover_js > .subline
     padding: 2rem 0;
 
 }
+/*
 .list_item:hover > .what, .list_item.hover_js > .what
 {
     font-size: 1.6rem;
     color:var(--light);
+}
+*/
+.list_item:hover > .what, .list_item.hover_js > .what
+{
+    color: var(--light);
+    font-size: 1.55rem;
 }
 .list_item > div, time
 {
@@ -252,7 +261,7 @@ time
 - Pas de hauteurs fixent sur les textes animées, ca pose des soucies de sauts de ligne sur mobile
 */
 
-@media screen and (max-width: 700px)
+@media screen and (max-width: 750px)
 {
     .hero
     {
@@ -275,5 +284,13 @@ time
     .what
     {
         height: fit-content;
+    }
+    .hero span.exergue
+    {
+        font-size: 2.75rem;
+    }
+    .hero span.name
+    {
+        font-size: 1.75rem;
     }
 }
