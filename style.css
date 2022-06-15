@@ -82,6 +82,8 @@ html, body
     font-weight: bold;
     font-size: 4rem;
     background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
     -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
     background-image: var(--gradient);
